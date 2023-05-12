@@ -1,0 +1,11 @@
+@import "/node_modules/bootstrap/dist/css/bootstrap.css";
+
+body {
+  background: #3da2c3;
+  direction: rtl;
+}
+
+hr {
+  color: white;
+  border-top: 6px solid white;
+}

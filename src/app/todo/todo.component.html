@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="text-center ">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webp" alt="Check" width="60">
+    <h1 class="my-4">تطبيق المهام اليومية</h1>
+  </div>
+  <hr>
+  <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+    <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm"></form>
+    <div class="form-group">
+      <input ngModel name="task" type="text" class="form-control" id="task" placeholder="أضف مهمة" required="">
+
+      <small *ngIf="taskForm.invalid && taskForm.dirty" id="errorMsg" class="form-text text-danger">خانة مطلوبة</small>
+    </div>
+    <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">إضافة</button>
+
+  </form>
+  <hr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">المهمة</th>
+        <th scope="col">مكتملة</th>
+        <th scope="col">حذف المهمة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of taskArray  index as i">
+        <td>{{t.taskName}}</td>
+        <td><input id="myCheckbox" type="checkbox" (change)="onCheck(i)"></td>
+        <td><button class="btn btn-danger btn-sm" (click)="onDelete(i)">Delete</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
